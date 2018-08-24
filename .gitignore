@@ -1,0 +1,10 @@
+# vim
+.lvimrc
+*.sw[a-p]
+
+# node & npm
+node_modules/
+
+# dong
+dong.config
+dong.log
