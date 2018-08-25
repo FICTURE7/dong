@@ -26,6 +26,7 @@
   "homepage": "https://github.com/ficture7/dong#readme",
   "dependencies": {
     "discord.js": "^11.4.2",
+    "influx": "^5.0.7",
     "uws": "^99.0.0",
     "winston": "^3.0.0"
   },

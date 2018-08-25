@@ -1,4 +1,4 @@
-const dong = require('./src/dong');
+const dong = require('./src/Dong');
 
 const bot = new dong.Dong();
 /* configure the bot & run it */
