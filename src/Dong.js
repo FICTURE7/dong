@@ -4,8 +4,6 @@ const discord = require('discord.js');
 
 const EventEmitter = require('events');
 const Handler = require('./Handler');
-const Command = require('./Command');
-const CommandHandler = require('./CommandHandler');
 const InfluxDatabase = require('./InfluxDatabase');
 
 /**
@@ -46,16 +44,16 @@ class Dong extends EventEmitter {
 		};
 
 		/**
-		 * Database connection/driver of the Dong instance.
-		 * @member Dong#db
-		 */
-		this.db = new InfluxDatabase();
-
-		/**
 		 * Handler of the Dong instance.
 		 * @member Dong#handler
 		 */
 		this.handler = new Handler(this);
+
+		/**
+		 * Database connection/driver of the Dong instance.
+		 * @member Dong#db
+		 */
+		this.db = new InfluxDatabase();
 
 		/**
 		 * Commands of the Dong instance.
@@ -73,7 +71,9 @@ class Dong extends EventEmitter {
 				winston.format.colorize(),
 				winston.format.timestamp(),
 				winston.format.splat(),
-				winston.format.printf(info => `${info.timestamp} [${info.level}]: ${info.message}`)
+				winston.format.printf(info => {
+					return `${info.timestamp} [${info.level}]: ${info.message}`
+				})
 			),
 			transports: [
 				new winston.transports.Console(),
@@ -136,6 +136,9 @@ class Dong extends EventEmitter {
 			throw new Error('Token was not configured in `config.token`.');
 		}
 
+		let db = this.db;
+		let config = this.config;
+
 		/* initialize discord client & set event handlers */
 		this.client = new discord.Client();
 		this.client.on('ready', () => this.handler.onReady());
@@ -143,8 +146,16 @@ class Dong extends EventEmitter {
 		this.client.on('warn', (warn) => this.handler.onWarn(warn));
 		this.client.on('message', (message) => this.handler.onMessage(message));
 
-		/* starts the bot */
-		this.client.login(this.config.token);
+		let client = this.client;
+		return new Promise((resolve, reject) => {
+			db.start().then(() => {
+				/* 
+				 * login into discord account once,
+				 * the db has been started.
+				 */
+				client.login(config.token).catch(err => reject(err));
+			}).catch(err => reject(err));
+		});
 	}
 
 	/**

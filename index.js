@@ -1,6 +1,11 @@
 const dong = require('./src/Dong');
 
 const bot = new dong.Dong();
-/* configure the bot & run it */
+/* configure the bot */
 bot.configure('dong.config');
-bot.start();
+/* start the bot */
+bot.start().then(() => {
+	bot.logger.info('dong started!');
+}).catch((err) => {
+	bot.logger.error('dong failed to start!');
+});

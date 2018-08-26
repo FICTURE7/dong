@@ -8,3 +8,11 @@ node_modules/
 # dong
 dong.config
 dong.log
+
+# these are just my local configs to quickly switch
+# between tokens
+dong.bot.config 
+dong.user.config
+
+# dong server
+data.json
