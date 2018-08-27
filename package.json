@@ -26,12 +26,7 @@
     },
     "homepage": "https://github.com/ficture7/dong#readme",
     "dependencies": {
-        "array-flatten": "^2.1.1",
-        "discord.js": "^11.4.2",
-        "http-server": "^0.11.1",
-        "influx": "^5.0.7",
-        "uws": "^99.0.0",
-        "winston": "^3.0.0"
+        "dong": "file:lib"
     },
     "devDependencies": {
         "nodemon": "^1.18.3"

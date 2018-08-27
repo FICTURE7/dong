@@ -1,0 +1,26 @@
+{
+  "name": "dong",
+  "version": "0.1.0",
+  "description": "Dong discord bot main library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ficture7/dong.git"
+  },
+  "author": "FICTURE7",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ficture7/dong/issues"
+  },
+  "homepage": "https://github.com/ficture7/dong#readme",
+  "dependencies": {
+    "array-flatten": "^2.1.1",
+    "discord.js": "^11.4.2",
+    "express": "^4.16.3",
+    "influx": "^5.0.7",
+    "winston": "^3.0.0"
+  }
+}
