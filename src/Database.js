@@ -1,3 +1,7 @@
+/* common error thrown in this file */
+let ERRORS = {
+    NOIMPL: new Error('Must implement')
+};
 
 /**
  * Represents a table implementation.
@@ -11,7 +15,7 @@ class Table {
      * @returns {Promise<Boolean>}
      */
     exists(timestamp) {
-        throw new Error('Must implement.');
+        throw ERRORS.NOIMPL;
     }
 
     /**
@@ -22,7 +26,7 @@ class Table {
      * @returns {Promise>Void>}
      */
     add(item, timestamp) {	
-        throw new Error('Must implement.');
+        throw ERRORS.NOIMPL;
     }
 }
 
@@ -45,7 +49,14 @@ class Database {
      * @return {Promise<Void>}
      */
     start() {
-        throw new Error('Must implement.');
+        throw ERRORS.NOIMPL;
+    }
+
+    /**
+     * Destroys the database instance.
+     */
+    destroy() {
+        /* space */
     }
 
     /**
@@ -53,7 +64,7 @@ class Database {
      * @return {Table}
      */
     get guilds() {
-        throw new Error('Must implement.');
+        throw ERRORS.NOIMPL;
     }
 
     /**
@@ -61,7 +72,7 @@ class Database {
      * @return {Table}
      */
     get messages() {
-        throw new Error('Must implement.');
+        throw ERRORS.NOIMPL;
     }
 
     /**
@@ -69,7 +80,7 @@ class Database {
      * @return {Table}
      */
     get users() {
-        throw new Error('Must implement.');
+        throw ERRORS.NOIMPL;
     }
 }
 
