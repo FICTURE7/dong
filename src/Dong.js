@@ -12,13 +12,6 @@ const InfluxDatabase = require('./InfluxDatabase');
 class Dong extends EventEmitter {
     
     /**
-     * Options of a Dong instance.
-     * @typedef {Object} DongOptions
-     * @property {Database} [db] Database to use.
-     * @property {Handler} [handler] Handler to use.
-     */
-
-    /**
      * Constructs a new instance of the Dong
      * class.
      * @constructs Dong
