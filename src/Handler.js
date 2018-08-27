@@ -1,15 +1,30 @@
 const flatten = require('array-flatten')
 
+/**
+ * Represents the handler where all the magic happens.
+ */
 class Handler {
 
+    /**
+     * Constructs a new instance of the Handler
+     * class.
+     * @param {Dong} dong 
+     * @constructs
+     */
     constructor(dong) {
         if (!dong) {
             throw new Error('`dong` must be specified.');
         }
 
+        /**
+         * Dong instance the Handler is working with.
+         */
         this.dong = dong;
     }
 
+    /**
+     * Callback when ready.
+     */
     onReady() {	
         let dong = this.dong;
         /* snap the guilds & their members */
@@ -108,14 +123,26 @@ class Handler {
         snapGuilds(dong.client.guilds);
     }
 
+    /**
+     * Callback when an error occured.
+     * @param {*} error 
+     */
     onError(error) {
         this.dong.logger.error('Dong: onError', error);
     }
 
+    /**
+     * Callback when a warning was received.
+     * @param {*} warn 
+     */
     onWarn(warn) {
         this.dong.logger.warn('Dong: onWarn', warn);
     }
 
+    /**
+     * Callback when a message was received.
+     * @param {*} message 
+     */
     onMessage(message) {
         this.dong.logger.debug('message: %s', message.content);
     }
