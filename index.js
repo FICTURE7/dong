@@ -5,7 +5,7 @@ const bot = new dong.Dong();
 bot.configure('dong.config');
 /* start the bot */
 bot.start().then(() => {
-	bot.logger.info('dong started!');
+    bot.logger.info('dong started!');
 }).catch((err) => {
-	bot.logger.error('dong failed to start!');
+    bot.logger.error('dong failed to start!');
 });
