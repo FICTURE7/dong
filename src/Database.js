@@ -12,7 +12,7 @@ class Table {
     /**
      * Determines if an item at the specified
      * timestamp exists.
-     * @returns {Promise<Boolean>}
+     * @returns {Promise<boolean>}
      */
     exists(timestamp) {
         throw ERRORS.NOIMPL;
@@ -23,7 +23,7 @@ class Table {
      * if timestamp was not specified.
      * @param {Object} item Item to add.
      * @param {number} [timestamp] Timestamp to add the item at.
-     * @returns {Promise>Void>}
+     * @returns {Promise>void>}
      */
     add(item, timestamp) {	
         throw ERRORS.NOIMPL;
@@ -46,7 +46,7 @@ class Database {
 
     /**
      * Starts the database instance.
-     * @return {Promise<Void>}
+     * @return {Promise<void>}
      */
     start() {
         throw ERRORS.NOIMPL;
@@ -54,9 +54,10 @@ class Database {
 
     /**
      * Destroys the database instance.
+     * @return {Promise<void>}
      */
     destroy() {
-        /* space */
+        return Promise.resolve();
     }
 
     /**
@@ -84,6 +85,7 @@ class Database {
     }
 }
 
+/* export the stuff */
 module.exports = {
     Table: Table,
     Database: Database
