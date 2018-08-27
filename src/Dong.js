@@ -14,7 +14,6 @@ class Dong extends EventEmitter {
     /**
      * Constructs a new instance of the Dong
      * class.
-     * @constructs Dong
      */
     constructor() {	
         super();

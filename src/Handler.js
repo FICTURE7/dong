@@ -9,7 +9,6 @@ class Handler {
      * Constructs a new instance of the Handler
      * class.
      * @param {Dong} dong 
-     * @constructs
      */
     constructor(dong) {
         if (!dong) {
