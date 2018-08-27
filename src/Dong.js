@@ -152,9 +152,20 @@ class Dong extends EventEmitter {
 
     /**
      * Stops the bot.
+     * @return {Promise<void>}
      */
-    stop() {
-        this.client.destroy();
+    destory() {
+        return new Promise((resolve, reject) => {
+            /*
+             * try to destory the client first
+             * then destroy the database
+             */
+            this.client.destroy().then(() => {;
+                this.db.destroy()
+                    .then(() => resolve())
+                    .catch(err => reject(err));
+            }).catch(err => reject(err));
+        });
     }
 }
 

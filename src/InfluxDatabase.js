@@ -1,7 +1,10 @@
 const influx = require('influx');
-const discord = require('discord.js');
 const { Table, Database } = require('./Database');
 
+/**
+ * InfluxDB implementation of a Table, which is 
+ * known as a measurement in InfluxDB terminology.
+ */
 class InfluxTable extends Table {
 
     constructor(db, measurement, getFields, getTags, getTimestamp) {
@@ -67,11 +70,22 @@ class InfluxTable extends Table {
     }
 }
 
+/**
+ * InfluxDB implementation of a Database.
+ */
 class InfluxDatabase extends Database {
 
+    /**
+     * Constructs a new instance of the InfluxDatabase
+     * class
+     */
     constructor() {
         super();
+        _initTables();
+    }
 
+    /* initliaze the tables */
+    _initTables() {
         this._guilds = new InfluxTable(this,
             'guilds',
             (guild) => {	
