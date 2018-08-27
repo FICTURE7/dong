@@ -142,7 +142,7 @@ class Dong extends EventEmitter {
         return new Promise((resolve, reject) => {
             db.start().then(() => {
                 /* 
-                 * login into discord account once,
+                 * login into discord account when,
                  * the db has been started.
                  */
                 client.login(config.token).catch(err => reject(err));
