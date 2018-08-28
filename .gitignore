@@ -5,14 +5,13 @@
 # node & npm
 node_modules/
 
-# dong
-dong.config
-dong.log
+# dong bot
+dong.bot.config
+dong.bot.log
 
-# these are just my local configs to quickly switch
-# between tokens
-dong.bot.config 
-dong.user.config
+# dong server
+dong.server.config 
+dong.server.log
 
 # dong server
 data.json
